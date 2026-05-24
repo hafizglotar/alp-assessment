@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harbourstone Income Fund I — Harbourstone Capital</title>
+    <meta name="description"
+        content="Harbourstone Income Fund I — a UK long-income real estate strategy backed by assisted living homes on long-term, government-supported leases." />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f2ec;
+            --bg-alt: #ffffff;
+            --ink: #222222;
+            --muted: #6f6a62;
+            --accent: #a46754;
+            --accent-dark: #8a5343;
+            --accent-soft: #ead9d2;
+            --line: #e6dfd2;
+            --shadow: 0 20px 45px -28px rgba(34, 34, 34, 0.42);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1180px;
+            margin: auto;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-head {
+            max-width: 680px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 13px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .section-head h2 {
+            font-size: 42px;
+            line-height: 1.18;
+            margin-bottom: 16px;
+        }
+
+        .section-head p {
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(245, 242, 236, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid transparent;
+            transition: 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(245, 242, 236, 0.98);
+            border-bottom: 1px solid var(--line);
+            box-shadow: 0 8px 24px -20px rgba(34, 34, 34, 0.5);
+        }
+
+        .nav-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: 0.3px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-btn {
+            padding: 13px 26px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.25s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 170px 0 90px;
+            color: #f5f2ec;
+            background:
+                linear-gradient(100deg, rgba(26, 23, 21, 0.95) 0%, rgba(30, 26, 24, 0.82) 46%, rgba(33, 29, 26, 0.5) 100%),
+                #2a2320 url('https://cdn.prod.website-files.com/6408aedd48f799678f65c895/6408aedd48f799792b65ca12_Castle%20View%20Image.jpg') center 35%/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 9px 18px;
+            border: 1px solid rgba(212, 164, 143, 0.55);
+            border-radius: 40px;
+            color: #e2b4a3;
+            font-size: 13px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            margin-bottom: 26px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.13;
+            margin-bottom: 24px;
+            color: #fbf8f3;
+        }
+
+        .hero h1 span {
+            color: #d99e88;
+            font-style: italic;
+        }
+
+        .hero p.lead {
+            font-size: 19px;
+            color: #d7cfc4;
+            max-width: 610px;
+            margin-bottom: 36px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 16px 32px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.25s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            padding: 16px 32px;
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            color: #f5f2ec;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: 0.25s ease;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ===== HERO STATS ===== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 70px;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 18px;
+            padding: 28px 24px;
+        }
+
+        .stat h3 {
+            font-size: 36px;
+            color: #d99e88;
+            margin-bottom: 6px;
+        }
+
+        .stat p {
+            font-size: 13.5px;
+            color: #cfc8bd;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== PROBLEM ===== */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .problem-card {
+            background: var(--bg-alt);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 38px 32px;
+            box-shadow: var(--shadow);
+            transition: 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-soft);
+        }
+
+        .card-index {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .problem-card h3 {
+            font-size: 22px;
+            margin: 14px 0 12px;
+        }
+
+        .problem-card p {
+            color: var(--muted);
+            font-size: 15.5px;
+        }
+
+        /* ===== SOLUTION ===== */
+        .solution {
+            background: var(--bg-alt);
+        }
+
+        .mission {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 54px;
+            align-items: center;
+            margin-bottom: 70px;
+        }
+
+        .mission .eyebrow {
+            margin-bottom: 14px;
+        }
+
+        .mission h2 {
+            font-size: 34px;
+            line-height: 1.25;
+            margin-bottom: 20px;
+        }
+
+        .mission p {
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .mission p:last-child {
+            margin-bottom: 0;
+        }
+
+        .mission-img {
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px -32px rgba(34, 34, 34, 0.55);
+            background: var(--accent-soft);
+            border: 1px solid var(--line);
+        }
+
+        .mission-img img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .feature-card {
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 32px 26px;
+            transition: 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 14.5px;
+        }
+
+        /* ===== TRUST ===== */
+        .trust-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 54px;
+            align-items: center;
+        }
+
+        .trust-intro h2 {
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .trust-intro p {
+            color: var(--muted);
+            font-size: 16.5px;
+        }
+
+        .trust-box {
+            background: var(--bg-alt);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 40px 38px;
+            box-shadow: var(--shadow);
+        }
+
+        .trust-box ul {
+            list-style: none;
+        }
+
+        .trust-box li {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 15.5px;
+            color: #3a352f;
+        }
+
+        .trust-box li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .trust-box li:first-child {
+            padding-top: 0;
+        }
+
+        .check {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        /* ===== FORM ===== */
+        .form-section {
+            background: #222222;
+            color: #f5f2ec;
+        }
+
+        .form-wrap {
+            max-width: 680px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .form-section .eyebrow {
+            color: #d99e88;
+        }
+
+        .form-wrap h2 {
+            font-size: 40px;
+            margin-bottom: 14px;
+            color: #fbf8f3;
+        }
+
+        .form-wrap>p {
+            color: #bcb4a9;
+            font-size: 16.5px;
+            margin-bottom: 38px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            text-align: left;
+        }
+
+        .field-full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            color: #bcb4a9;
+            margin-bottom: 7px;
+            letter-spacing: 0.3px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 15px 16px;
+            background: #2e2c29;
+            border: 1px solid #413e3a;
+            border-radius: 12px;
+            color: #f5f2ec;
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        input::placeholder {
+            color: #7d766c;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: #34312d;
+        }
+
+        .submit-btn {
+            grid-column: 1 / -1;
+            padding: 17px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: 0.25s ease;
+            margin-top: 6px;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .form-fineprint {
+            grid-column: 1 / -1;
+            font-size: 12.5px;
+            color: #8a837a;
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        .form-success {
+            display: none;
+            background: #2e2c29;
+            border: 1px solid var(--accent);
+            border-radius: 18px;
+            padding: 42px 34px;
+        }
+
+        .form-success h3 {
+            font-size: 26px;
+            color: #fbf8f3;
+            margin-bottom: 10px;
+        }
+
+        .form-success p {
+            color: #bcb4a9;
+            font-size: 15.5px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1c1a18;
+            color: #8a837a;
+            padding: 54px 0;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #f5f2ec;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .footer-brand span {
+            color: var(--accent);
+        }
+
+        .compliance {
+            max-width: 880px;
+            margin: 0 auto 20px;
+            font-size: 13px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .footer-copy {
+            text-align: center;
+            font-size: 12.5px;
+            color: #615b53;
+            border-top: 1px solid #312e2a;
+            padding-top: 22px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:980px) {
+            .hero h1 {
+                font-size: 46px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .mission {
+                grid-template-columns: 1fr;
+                gap: 34px;
+            }
+
+            .mission-img img {
+                height: 320px;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .trust-wrap {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .section-head h2 {
+                font-size: 34px;
+            }
+        }
+
+        @media(max-width:600px) {
+            section {
+                padding: 74px 0;
+            }
+
+            .hero {
+                padding: 140px 0 70px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p.lead {
+                font-size: 17px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-ghost {
+                text-align: center;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-wrap h2 {
+                font-size: 30px;
+            }
+
+            .trust-box {
+                padding: 32px 26px;
+            }
+
+            .nav-btn {
+                padding: 11px 18px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-wrap">
+            <div class="logo">Harbourstone<span> Capital</span></div>
+            <a href="#lead" class="nav-btn">Request Investor Pack</a>
+        </div>
+    </nav>
+
+    <!-- ===== 1. HERO ===== -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">UK Long-Income Real Estate</span>
+                <h1>Secure, long-term income — anchored in <span>homes that matter</span>.</h1>
+                <p class="lead">
+                    Harbourstone Income Fund I invests in assisted living accommodation for people with enduring
+                    illnesses — homes let on long-term, government-supported leases, structured to deliver steady
+                    quarterly income for investors.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#lead" class="btn-primary">Request the Investor Memorandum</a>
+                    <a href="#solution" class="btn-ghost">How the fund works</a>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <h3>9%</h3>
+                    <p>Target annual income</p>
+                </div>
+                <div class="stat">
+                    <h3>Quarterly</h3>
+                    <p>Investor distributions</p>
+                </div>
+                <div class="stat">
+                    <h3>25-year</h3>
+                    <p>Lease agreements</p>
+                </div>
+                <div class="stat">
+                    <h3>100+</h3>
+                    <p>Assisted living homes targeted</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== 2. PROBLEM ===== -->
+    <section id="problem">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">The challenge</span>
+                <h2>Income is getting harder to rely on</h2>
+                <p>With inflation persistent and equity markets volatile, investors are looking for income that is
+                    contracted, real-asset backed, and largely disconnected from market sentiment.</p>
+            </div>
+            <div class="grid-3">
+                <div class="problem-card">
+                    <span class="card-index">01</span>
+                    <h3>Market volatility</h3>
+                    <p>Equity income is exposed to interest rates, sentiment and global shocks — and dividends can be
+                        reduced with little warning.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="card-index">02</span>
+                    <h3>Inflation erosion</h3>
+                    <p>Cash and conventional fixed income can struggle to keep pace with rising prices, quietly reducing
+                        real spending power.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="card-index">03</span>
+                    <h3>Shallow real yield</h3>
+                    <p>Many mainstream income products offer modest yields once inflation and costs are taken into
+                        account.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 3. PRODUCT / SOLUTION ===== -->
+    <section id="solution" class="solution">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">The product</span>
+                <h2>Introducing Harbourstone Income Fund I</h2>
+                <p>A UK long-income real estate strategy with a clear social purpose: housing people who need it most,
+                    while generating long-term contracted income for investors.</p>
+            </div>
+
+            <div class="mission">
+                <div>
+                    <span class="eyebrow">Homes with a purpose</span>
+                    <h2>Built around the people who need a stable home the most</h2>
+                    <p>Everyone deserves a place they can call home — a safe haven they can rely on long term. Few need
+                        that certainty more than people living with enduring illnesses, who depend on living space
+                        designed for their specialist needs.</p>
+                    <p>Harbourstone Income Fund I is built around assisted living accommodation for exactly those
+                        tenants. Working alongside housing associations and Community Benefit Societies, the fund
+                        supports fit-for-purpose homes let on 25-year agreements underpinned by the Department for Work
+                        and Pensions (DWP).</p>
+                    <p>The objective is to deliver more than 100 assisted living apartments across the UK — and
+                        dependable, long-term income for the investors who help make them possible.</p>
+                </div>
+                <div class="mission-img">
+                    <img src="https://images.unsplash.com/photo-1656161653385-43423cc7d009?fm=jpg&q=72&w=1100&auto=format&fit=crop"
+                        alt="A traditional London brick townhouse" loading="lazy" />
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">%</div>
+                    <h3>9% target annual income</h3>
+                    <p>Quarterly distributions drawn from long-term contracted rental income.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">↗</div>
+                    <h3>Inflation-linked leases</h3>
+                    <p>Rent reviews structured to track inflation, helping protect real income over time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">★</div>
+                    <h3>Government-supported tenants</h3>
+                    <p>Leases underpinned by DWP-supported housing arrangements, not open-market demand.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">▦</div>
+                    <h3>Real-asset backed</h3>
+                    <p>Every position is anchored to physical UK residential property — a tangible, enduring asset.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 4. CREDIBILITY / TRUST ===== -->
+    <section id="trust">
+        <div class="container">
+            <div class="trust-wrap">
+                <div class="trust-intro">
+                    <span class="eyebrow">Why investors trust the structure</span>
+                    <h2>Built for sophisticated investors</h2>
+                    <p>Harbourstone Income Fund I is designed for high-net-worth individuals, financial advisers,
+                        property investors and family offices seeking defensive, income-led exposure to UK real estate.
+                    </p>
+                </div>
+                <div class="trust-box">
+                    <ul>
+                        <li><span class="check">✓</span> 25-year lease agreements underpinned by the Department for Work
+                            and Pensions</li>
+                        <li><span class="check">✓</span> Delivered with established housing associations and Community
+                            Benefit Societies</li>
+                        <li><span class="check">✓</span> Inflation-linked rent reviews on long-term contracted income
+                        </li>
+                        <li><span class="check">✓</span> Real assets — physical residential property located across the
+                            UK</li>
+                        <li><span class="check">✓</span> A defensive alternative to volatile public equity markets</li>
+                        <li><span class="check">✓</span> Quarterly investor reporting and distributions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 5. LEAD CAPTURE FORM ===== -->
+    <section id="lead" class="form-section">
+        <div class="container">
+            <div class="form-wrap">
+                <span class="eyebrow">Investor enquiry</span>
+                <h2>Request the Investor Memorandum</h2>
+                <p>Share a few details and the Harbourstone Capital team will send the full investor pack, including
+                    fund structure, lease detail and risk factors.</p>
+
+                <form id="leadForm">
+                    <div>
+                        <label for="name">Full name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required />
+                    </div>
+                    <div>
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" name="email" placeholder="you@email.com" required />
+                    </div>
+                    <div>
+                        <label for="phone">Phone number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+44 0000 000000" required />
+                    </div>
+                    <div>
+                        <label for="investorType">Investor type</label>
+                        <select id="investorType" name="investorType" required>
+                            <option value="" disabled selected>Select investor type</option>
+                            <option>High-net-worth individual</option>
+                            <option>Financial adviser</option>
+                            <option>Property investor</option>
+                            <option>Family office</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Request the Investor Pack</button>
+                    <p class="form-fineprint">By submitting, you agree to be contacted about Harbourstone Income Fund I.
+                        Your details will not be shared with third parties.</p>
+                </form>
+
+                <div class="form-success" id="formSuccess">
+                    <h3>Thank you — your request has been received</h3>
+                    <p>A member of the Harbourstone Capital team will be in touch shortly with the investor memorandum
+                        and supporting materials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 6. COMPLIANCE FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-brand">Harbourstone<span> Capital</span></div>
+            <p class="compliance">
+                Harbourstone Income Fund I is a fictional product created for a creative assignment and is not available
+                for investment. Nothing on this page constitutes a financial promotion, an offer or invitation to
+                invest, or financial, legal or tax advice. Capital is at risk: the value of investments and the income
+                from them can fall as well as rise, and investors may get back less than they invest. The 9% figure is a
+                target only — it is not guaranteed, not a forecast of actual returns, and may not be achieved. Past
+                performance is not a reliable indicator of future results.
+            </p>
+            <div class="footer-copy">
+                © 2026 Harbourstone Capital. For illustrative and educational purposes only.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar shadow on scroll
+        var navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function () {
+            navbar.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        // Lead form — graceful confirmation (no backend in this assignment build)
+        var form = document.getElementById('leadForm');
+        var success = document.getElementById('formSuccess');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            form.style.display = 'none';
+            success.style.display = 'block';
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
+</body>
+
+</html>
